@@ -1,0 +1,223 @@
+:root {
+    --color-primary: #cf3a69;
+    --color-secundary: #011638;
+    --color-gray: #6A7B76;
+    --color-pink: #EFCFE3;
+    --color-light: #E8F0FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+.alto {
+    min-height: 100vh;
+    padding: 0 !important;
+}
+
+.hero {
+    background-image: url(../images/hero_home.jpg);
+    background-size: cover !important;
+    background-position: center center;
+}
+
+.overlay {
+    min-width: 100%;
+    min-height: 100%;
+    background: rgb(207, 58, 105);
+    background: radial-gradient(circle, rgba(207, 58, 105, 0.5662858893557423) 22%, rgba(1, 22, 56, 1) 100%);
+}
+
+.navbar-brand {
+    width: 100px !important;
+    object-fit: cover;
+    object-position: bottom;
+    margin-bottom: 0 !important;
+}
+
+.navbar-toggler-icon {
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.img-fluid {
+    vertical-align: bottom !important;
+}
+
+.hero-title {
+    color: white;
+}
+
+.text-hero {
+    color: white !important;
+}
+
+.hero-button {
+    background-color: transparent !important;
+    border: white 1px solid !important;
+    transition: all 1s ease;
+}
+
+.hero-button:hover {
+    background-color: #011638 !important;
+    border: 1px solid #ffffff !important;
+}
+
+main {
+    background-color: #f9f9f9;
+}
+
+.events-title {
+    color: #011638;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(28, 28, 29, 0.25) !important;
+    border-color: #6c757d !important;
+}
+
+.search-bar {
+    max-width: 1000px;
+}
+
+.cards-container {
+    max-width: 100vw !important;
+}
+
+.card-event {
+    border: none !important;
+    min-height: 100%;
+}
+.card-header{
+    max-height: 200px;
+    overflow: hidden;
+}
+.card-img-top{
+    object-fit: cover;
+    object-position: center;
+}
+.card-bodyHome{
+    min-height: 150px;
+}
+.fecha-mes {
+    margin: 0;
+    font-weight: bold;
+    color: #cf3a69;
+    font-size: 14px;
+}
+
+.fecha-dia {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.rrss {
+    font-size: 24px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold !important;
+    color: #cf3a69;
+}
+
+.btn-details {
+    color: #cf3a69 !important;
+    border: 1px solid #cf3a69 !important;
+}
+
+.btn-details:hover {
+    color: white !important;
+    background-color: #cf3a69 !important;
+}
+
+/* ----------------------------- DETAILS EVENTS -------------------------------------------------- */
+.details-card {
+    border: none !important;
+}
+
+.img-eventDetails {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
+
+.icon-details {
+    color: #cf3a69 !important;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price-details {
+    padding: 1rem;
+    background-color: #cf3a69;
+    color: white;
+    border-radius: 1rem;
+    max-width: 100% !important;
+}
+
+/* -------------------------------------------- UPCOMING EVENTS ------------------------------------------------ */
+.overlay-futureEvents {
+    background: rgb(63, 94, 251) !important;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 0.7035407913165266) 100%) !important;
+}
+/* -------------------------------------------- PAST EVENTS ------------------------------------------------ */
+.overlay-pastEvents {
+    background: rgb(239, 207, 227) !important;
+    background: linear-gradient(90deg, rgba(239, 207, 227, 1) 0%, rgba(1, 22, 56, 0.42062762605042014) 100%) !important;
+}
+.img-cardPastEvents{
+    filter: grayscale(100%);
+}
+/* -------------------------------------------- CONTACT ------------------------------------------------ */
+.hero-contact{
+    background-image: url(../images/contact-hero.jpg);
+}
+.submit-button{
+    background-color: #cf3a69 !important;
+    border-color: #cf3a69 !important ;
+}
+.submit-button:hover{
+    opacity: 0.9 !important;
+}
+/* -------------------------------------------- STATS  ------------------------------------------------ */
+.hero-stats{
+    background-image: url(../images/stats-hero.jpg);
+}
+table, th, td{
+    color: #02265e !important;
+}
+.background-line{
+    color: white !important;
+    background-color: #cf3a69 !important;
+}
+@media (max-width: 767px) {
+    .text-hero {
+        display: none;
+    }
+
+    .category-container {
+        justify-content: center !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .img-eventDetails {
+        min-height: 100%;
+    }
+}
