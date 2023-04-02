@@ -47,3 +47,5 @@ function createCards(events, abr) {
     }
     return template
 }
+
+//chequear
