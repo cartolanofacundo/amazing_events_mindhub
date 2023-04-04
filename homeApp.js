@@ -11,6 +11,7 @@ function insertCards(events, abr) {
 }
 
 function createCards(events, abr) {
+    //query selector
     let template = ""
     for (let event of events) {
         template += `<div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4 mb-5">

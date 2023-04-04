@@ -1,8 +1,6 @@
 //DATA
 let events = data.eventos.filter((event) => {
-    let dateEvent = new Date(event.date);
-    let actualDate = new Date(data.fechaActual);
-    if(dateEvent > actualDate){
+    if(new Date(event.date) > new Date(data.fechaActual)){
         return event
     }
 });
