@@ -1,4 +1,4 @@
-const data= {
+export const data= {
   "fechaActual": "2022-01-01",
   "eventos": [
     {
