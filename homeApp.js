@@ -1,9 +1,56 @@
 //DATA
 let events = data.eventos;
 let monthAbbreviation = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+let categoriesGlobal = [];
+const $searchButton = document.getElementById("searchSubmit");
 
 insertCards(events, monthAbbreviation)
+createCategories();
+//eventListeners
+$searchButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    let filterString = document.getElementById("searchInput").value
+    filterEvents([],filterString, events)
+})
 
+
+
+//funciones de filtrado
+function filterEvents(categories, filterString, events){
+    insertCards(filterEventsText(events, filterString), monthAbbreviation)
+}
+function filterEventsCategory(categories, events){
+    const eventsFilter = events.filter(event => {
+        for(let category of categories){
+            if(category.value === event.category && category.show){
+                return event;
+            }
+        }
+    });
+    return eventsFilter;
+}
+function filterEventsText(events, filterString) {
+    let filteredTextEvents = events
+    if(filterString && filterString !== ""){
+        filteredTextEvents = events.filter((event) => foundText(event.name, event.description, filterString))
+    }
+    return filteredTextEvents;
+}
+function foundText(name,description,filterString  ) {
+    if (name.toLowerCase().includes(filterString.toLowerCase()) || description.toLowerCase().includes(filterString.toLowerCase())) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+
+
+
+//funciones de cards
 
 function insertCards(events, abr) {
     let $container = document.getElementById("cards-container")
@@ -41,4 +88,51 @@ function createCards(events, abr) {
                         </div>`
     }
     return template
+}
+
+//funciones de categorias
+
+function createCategories(){
+    let id = 0;
+    let categories = events.map((event) => event.category).reduce((acc, act) =>{
+        if(!acc.includes(act)){
+            acc.push(act);
+        }
+        return acc;
+    },[])
+    categories = categories.map((category) => {
+        id++;
+       return {
+            id: id,
+            value: category,
+            show: false
+        }
+    })
+    categoriesGlobal = categories;
+    printCategories(categories)
+}
+function printCategories(categories){
+    let template = ""
+    for(let category of categories){
+        console.log(category.value)
+        let id = category.value.replace(/\s+/g, '')
+        template += `<div>
+                        <input type="checkbox" class="btn-check" id="${category.id}" autocomplete="off" value="${category.value}" ${category.show ? "checked" : ""}>
+                        <label class="btn btn-outline-secondary me-2 my-2" for="${id}" onclick="showCategory(${category.id})">${category.value}</label>
+                        </div>`
+    }
+    document.getElementById("categoryContainer").innerHTML = template
+}
+
+function showCategory(value){
+    for(let category of categoriesGlobal){
+        console.log("value" + value);
+        console.log("category" + category.id)
+        if(value === category.id){
+            console.log("entre")
+            category.show = !category.show
+        }
+    }
+    printCategories(categoriesGlobal)
+    filterEvents(categoriesGlobal);
 }
