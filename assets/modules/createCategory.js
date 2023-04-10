@@ -20,7 +20,7 @@ function printCategories($container,categories){
     let template = ""
     for(let category of categories){
         template += `<div>
-                        <input type="checkbox" class="btn-check" id="${category.id}" autocomplete="off" value="${category.value}">
+                        <input type="checkbox" class="btn-check" id="${category.id}" autocomplete="off" value="${category.value}" >
                         <label class="btn btn-outline-secondary me-2 my-2" for="${category.id}">${category.value}</label>
                         </div>`
     }
