@@ -14,7 +14,6 @@ export const categoryFiltering = (categories, events) => {
 }
 export const textFiltering = (filterString, events) => {
     let filteredTextEvents = events
-    console.log(events)
     if (filterString && filterString !== "") {
         filteredTextEvents = events.filter((event) => event.name.toLowerCase().includes(filterString.toLowerCase()))
     }

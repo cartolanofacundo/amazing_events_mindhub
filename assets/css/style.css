@@ -181,8 +181,20 @@ main {
     background: rgb(239, 207, 227) !important;
     background: linear-gradient(90deg, rgba(239, 207, 227, 1) 0%, rgba(1, 22, 56, 0.42062762605042014) 100%) !important;
 }
-.img-cardPastEvents{
-    filter: grayscale(100%);
+.gray .card-img-top{
+    filter: grayscale(100%) !important;
+}
+.gray .fecha-mes{
+    color: rgba(33, 37, 41, 0.75);
+}
+.gray  .fecha-dia{
+    color: rgba(33,37,31,0.75)
+}
+.gray .price{
+    color: rgba(33, 37, 41, 0.75)
+}
+.gray .card-text{
+    color: rgba(33, 37, 41, 0.75)
 }
 /* -------------------------------------------- CONTACT ------------------------------------------------ */
 .hero-contact{

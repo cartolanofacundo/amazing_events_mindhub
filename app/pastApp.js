@@ -16,7 +16,7 @@ const $searchButton = document.getElementById("searchSubmit");
 const $cardsContainer = document.getElementById("cards-container")
 
 
-createCategories(events, 0, false, $categoriesContainer);
+createCategories(events, $categoriesContainer);
 insertCards($cardsContainer, events, true)
 
 //eventListeners
