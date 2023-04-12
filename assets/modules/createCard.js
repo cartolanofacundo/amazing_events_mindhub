@@ -1,10 +1,11 @@
 const monthAbbreviation = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 
-const createCards = (events, past) => {
+const createCards = (events, past, urlDetails) => {
     let abr = monthAbbreviation;
     let template = ""
     for (let event of events) {
+        let id = event.name.replace(/\s+/g, '').toLowerCase()
         template += `<div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4 mb-5">
                             <div class="card card-event shadow bg-body-tertiary ${past ? "gray" : ""}">
                                 <div class="card-header p-0">
@@ -25,7 +26,7 @@ const createCards = (events, past) => {
                                         <span class="price">$${event.price}</span>
                                     </div>
                                     <div>
-                                        <a href="./eventDetails.html" class="btn ${past ? "btn-outline-secondary" : "btn-details"}  ">Event details</a>
+                                        <a href="${urlDetails}${id}" class="btn ${past ? "btn-outline-secondary" : "btn-details"}  ">Event details</a>
                                     </div>
                                 </div>
                             </div>
@@ -34,6 +35,6 @@ const createCards = (events, past) => {
     return template
 }
 
-export const insertCards = ($container, events, past) => {
-    $container.innerHTML = createCards(events, past);
+export const insertCards = ($container, events, past, urlDetails) => {
+    $container.innerHTML = createCards(events, past, urlDetails);
 }

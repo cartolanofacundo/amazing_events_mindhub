@@ -11,25 +11,26 @@ let events = data.eventos.filter((event) => {
 });
 let filterString = "";
 let filterCategories = [];
+const urlDetails = "./eventDetails.html?id="
 const $categoriesContainer = document.getElementById("categoriesContainer")
 const $searchButton = document.getElementById("searchSubmit");
 const $cardsContainer = document.getElementById("cards-container")
 
 
 createCategories(events, $categoriesContainer);
-insertCards($cardsContainer, events, true)
+insertCards($cardsContainer, events, true, urlDetails)
 
 //eventListeners
 $searchButton.addEventListener("click", (e) => {
     e.preventDefault();
     filterString = document.getElementById("searchInput").value
-    insertCards($cardsContainer,filterEvents(filterCategories, filterString, events), true)
+    insertCards($cardsContainer,filterEvents(filterCategories, filterString, events), true, urlDetails)
 })
 
 $categoriesContainer.addEventListener("change", () => {
     const selectedCategories = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(check => check.value)
     filterCategories = selectedCategories;
-    insertCards($cardsContainer,filterEvents(filterCategories, filterString, events), true)
+    insertCards($cardsContainer,filterEvents(filterCategories, filterString, events), true, urlDetails)
 })
 
 
