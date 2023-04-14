@@ -1,10 +1,8 @@
+import { getCategories } from "./utils.js";
+
+getCategories
 export const createCategories = (events, $container) => {
-    let categories = events.map((event) => event.category).reduce((acc, act) =>{
-        if(!acc.includes(act)){
-            acc.push(act);
-        }
-        return acc;
-    },[])
+    let categories = getCategories(events);
     printCategories($container,categories)
     return categories;
 }

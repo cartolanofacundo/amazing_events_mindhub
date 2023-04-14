@@ -1,12 +1,20 @@
-import { data } from "../assets/data/data.js";
-const events = data.eventos;
-const actualDate = data.fechaActual
+let events = []
+let currentDate = undefined;
 const abr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const $container = document.getElementById("detailsContainer")
-printEventDetails();
+
+
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+    .then((response) => response.json())
+    .then((data) => {
+        events = data.events;
+        currentDate = data.currentDate
+        printEventDetails();
+    })
+
 
 function createTemplate(event) {
-    let isUpcoming = new Date(event.date) > new Date(actualDate)
+    let isUpcoming = new Date(event.date) > new Date(currentDate)
     return `<div class="container-fluid cover-container">
                         <img src="${event.image}" class="img-fluid cover-image" alt="${event.name}">
                     </div>
@@ -23,7 +31,7 @@ function createTemplate(event) {
                                 <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-tag-fill"></i> ${event.category}</span>
                             </div>
                             <div class="function-container d-flex align-items-center pt-1">
-                                <button class="btn btn-outline-secondary contact-btn"><i class="bi bi-envelope"></i> Contact</button>
+                                <a href="./contact.html" class="btn btn-outline-secondary contact-btn"><i class="bi bi-envelope"></i> Contact</a>
                                 <div class="vr mx-2 divider"></div>
                                 <button class="btn ${isUpcoming ? "btn-details-buy" : "btn-secondary"} btn-hidden" ${isUpcoming ? "": "disabled"}><i class="bi bi-bag-fill"></i> Buy Ticket</button>
                             </div>
@@ -54,7 +62,7 @@ function createTemplate(event) {
                     <h6>Description</h6>
                     <p class="text-secondary">${event.description}</p>
                 </div>
-                <button class="btn col-12 mt-3 ${isUpcoming ? "btn-details-buy-footer" : "btn-secondary"}" ${isUpcoming ? "": "disabled"}><i class="bi bi-bag-fill"></i> Buy Ticket</button>
+                <button class="btn col-12 mt-3 ${isUpcoming ? "btn-details-buy-footer" : "btn-secondary"} btn-hidden-footer" ${isUpcoming ? "": "disabled"}><i class="bi bi-bag-fill"></i> Buy Ticket</button>
             </div>
         </div>`
 }

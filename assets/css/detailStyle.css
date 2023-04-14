@@ -8,7 +8,7 @@ main{
 }
 .cover-image{
     width: 100%;
-    object-position: center;
+    object-position: 0px -200px;
 }
 
 .details-container{
@@ -29,15 +29,16 @@ main{
 .btn-details-buy:hover, .btn-details-buy-footer:hover{
     opacity: 0.8 !important;
 }
-.btn-details-buy-footer{
+.btn-hidden-footer{
     display: none;
 }
+
 @media ( max-width: 757px) {
     .details-container{
         margin-bottom: 0;
     }
     .card-details-container{
-        min-height: 80vh;
+        min-height: 60vh;
         margin-bottom: 0 !important;
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
@@ -59,5 +60,8 @@ main{
     }
     .btn-details-buy-footer{
         display: block;
+    }
+    .cover-image{
+        object-position: 0px 0px;
     }
 }
