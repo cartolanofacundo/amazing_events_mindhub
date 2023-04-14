@@ -71,12 +71,7 @@ function getEvent(events){
     let params = new URLSearchParams(urlParams);
     let id = params.get("id");
     let returnEvent = {}
-    for(let event of events){
-        let eventId = event.name.replace(/\s+/g, '').toLowerCase()
-        if(eventId === id){
-            return event;
-        }
-    }
+    returnEvent = events.filter((e) => id === e.name.replace(/\s+/g, '').toLowerCase() )[0]
     return returnEvent;
 }
 function printEventDetails(){

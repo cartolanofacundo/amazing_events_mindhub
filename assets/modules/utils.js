@@ -67,6 +67,7 @@ export const getRevenues = (events, property) =>{
     for(let event of events){
         revenues += event.price * event[property]
     }
+
     return revenues;
 }
 export const getRevenuesOfCategory = (events, currentDate, upcoming  ) =>{
