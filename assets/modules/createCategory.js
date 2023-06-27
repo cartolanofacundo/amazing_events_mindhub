@@ -1,10 +1,8 @@
+import { getCategories } from "./utils.js";
+
+
 export const createCategories = (events, $container) => {
-    let categories = events.map((event) => event.category).reduce((acc, act) =>{
-        if(!acc.includes(act)){
-            acc.push(act);
-        }
-        return acc;
-    },[])
+    let categories = getCategories(events);
     printCategories($container,categories)
     return categories;
 }
@@ -13,13 +11,14 @@ function printCategories($container,categories){
     $container.innerHTML = template    
 }
 function createButtonCategories(categories){
-    let template = ""
-    for(let category of categories){
-        let id = category.replace(/\s+/g, '').toLowerCase();
-        template += `<div>
+    let template = categories.map((category) => createTemplate(category)).join("")
+    return template
+}
+function createTemplate(category){
+    let id = category.replace(/\s+/g, '').toLowerCase();
+    let template = `<div>
                         <input type="checkbox" class="btn-check" id="${id}" autocomplete="off" value="${category}" >
                         <label class="btn btn-outline-secondary me-2 my-2" for="${id}">${category}</label>
                         </div>`
-    }
     return template
 }

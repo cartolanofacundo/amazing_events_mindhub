@@ -1,0 +1,67 @@
+main{
+    background-color: #f2f2f2 !important;
+}
+.cover-container{
+    max-height: 40vh !important; 
+    overflow: hidden;
+    padding: 0 !important;
+}
+.cover-image{
+    width: 100%;
+    object-position: 0px -200px;
+}
+
+.details-container{
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+}
+.day{
+    color: #cf3a69 !important;
+    font-weight: bold !important;
+}
+.month{
+    font-weight: bold;
+}
+.btn-details-buy,.btn-details-buy-footer{
+    color: white !important;
+    background-color: #cf3a69 !important;
+}
+.btn-details-buy:hover, .btn-details-buy-footer:hover{
+    opacity: 0.8 !important;
+}
+.btn-hidden-footer{
+    display: none;
+}
+
+@media ( max-width: 757px) {
+    .details-container{
+        margin-bottom: 0;
+    }
+    .card-details-container{
+        min-height: 60vh;
+        margin-bottom: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+    .contact-btn, .btn-hidden {
+        display: none;
+    }
+    .header-description{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: start;
+        padding: 0;
+    }
+    .date-container{
+        margin: 0 !important;
+    }
+    .divider{
+        display: none;
+    }
+    .btn-details-buy-footer{
+        display: block;
+    }
+    .cover-image{
+        object-position: 0px 0px;
+    }
+}
